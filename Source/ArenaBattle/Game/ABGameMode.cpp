@@ -2,23 +2,27 @@
 
 
 #include "ABGameMode.h"
+#include "Character/ABCharacterPlayer.h"
 //#include "Player/ABPlayerController.h"
 
 AABGameMode::AABGameMode()
 {
 	// 블루프린트 클래스를 애셋 로드하듯이.
-	static ConstructorHelpers::FClassFinder<APawn> PawnClassRef(
-		TEXT("/Game/ThirdPerson/Blueprints/BP_ThirdPersonCharacter.BP_ThirdPersonCharacter_C")
-	);
+	//static ConstructorHelpers::FClassFinder<APawn> PawnClassRef(
+	//	TEXT("/Game/ThirdPerson/Blueprints/BP_ThirdPersonCharacter.BP_ThirdPersonCharacter_C")
+	//);
 
-	// 검색 성공 여부 확인.
-	// if(PawnClassRef.Class)
-	// if(PawnClassRef.Class != nullptr)
-	if (PawnClassRef.Succeeded())
-	{
-		// 기본 폰 클래스 설정.
-		DefaultPawnClass = PawnClassRef.Class;
-	}
+	//// 검색 성공 여부 확인.
+	//// if(PawnClassRef.Class)
+	//// if(PawnClassRef.Class != nullptr)
+	//if (PawnClassRef.Succeeded())
+	//{
+	//	// 기본 폰 클래스 설정.
+	//	DefaultPawnClass = PawnClassRef.Class;
+	//}
+
+	// 기본 폰 클래스 설정.
+	DefaultPawnClass = AABCharacterPlayer::StaticClass();
 
 	// 기본 클래스 지정.
 	// PlayerControllerClass = AABPlayerController::StaticClass();
